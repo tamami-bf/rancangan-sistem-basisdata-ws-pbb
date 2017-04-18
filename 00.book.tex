@@ -114,16 +114,75 @@ Struktur dari tabel DAT\_OP\_BUMI ini seperti pada gambar \ref{fig:tabel-dat-op-
 
 \subsection{Struktur Tabel REF\_KELURAHAN}
 
+Tabel ini sudah terbentuk dan dimanfaatkan oleh aplikasi SISMIOP untuk menampung data administrasi Desa/Kelurahan seperti nama Desa/Kelurahan, kode pos, dan sebagainya. Tabel ini digunakan pada aplikasi \textit{Web Service} PBB untuk melakukan \textit{inquiry} terhadap nama Desa/Kelurahan.
 
+Struktur dari tabel REF\_KELURAHAN ini adalah seperti pada gambar \ref{fig:tabel-ref-kelurahan} :
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.4\textwidth]{./resources/04-struktur-tabel-ref-kelurahan}
+  \caption{Struktur Tabel REF\_KELURAHAN}
+  \label{fig:tabel-ref-kelurahan}
+\end{figure}
 
 \subsection{Struktur Tabel REF\_KECAMATAN}
 
+Tabel ini sudah terbentuk dan dimanfaatkan oleh aplikasi SISMIOP untuk menampung data administrasi Kecamatan. Tabel ini digunakan pada aplikasi \textit{Web Service} PBB untuk memberikan informasi nama Kecamatan pada proses \textit{inquiry} dan pencatatan pembayaran PBB-P2.
+
+Struktur dari tabel REF\_KECAMATAN ini adalah seperti pada gambar \ref{fig:tabel-ref-kecamatan} :
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{./resources/05-struktur-tabel-ref-kecamatan}
+	\caption{Struktur Tabel REF\_KECAMATAN}
+	\label{fig:tabel-ref-kecamatan}
+\end{figure}
+
 \subsection{Struktur Tabel LOG\_TRX\_PEMBAYARAN}
+
+Tabel ini adalah tabel baru yang digunakan untuk menyimpan catatan terhadap proses transaksi pembayaran melalui aplikasi \textit{Web Service} PBB.
+
+Struktur dari tabel LOG\_TRX\_PEMBAYARAN ini adalah seperti pada gambar \ref{fig:tabel-log-trx-pembayaran} :
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.4\textwidth]{./resources/06-struktur-tabel-log-trx-pembayaran}
+  \caption{Struktur Tabel LOG\_TRX\_PEMBAYARAN}
+  \label{fig:tabel-log-trx-pembayaran}
+\end{figure}
+
+Yang menjadi \textit{field} atau data penting pada tabel ini adalah NOP, Tahun Pajak (THN), dan Nomor Transaksi Pajak Daerah (NTPD). \textit{Field} inilah yang nantinya menjadi kunci dari setiap transaksi yang terjadi pada sistem aplikasi \textit{Web Service} PBB.
+
 
 \subsection{Struktur Tabel LOG\_REVERSAL}
 
+Tabel ini digunakan sebagai tempat untuk menyimpan catatan tarhadap proses \textit{reversal} atau koreksi data pembayaran yang telah terjadi sebelumnya.
+
+Struktur dari tabel LOG\_REVERSAL ini adalah seperti pada gambar \ref{fig:tabel-log-reversal} :
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{./resources/07-struktur-tabel-log-reversal}
+	\caption{Struktur Tabel LOG\_REVERSAL}
+	\label{fig:tabel-log-reversal}
+\end{figure}
+
 
 \section{DIAGRAM RELASI \textit{ENTITY}}
+
+Diagram relasi yang menggambarkan hubungan antar tabel pada sistem aplikasi \textit{Web Service} PBB adalah seperti pada gambar \ref{fig:relasi-entity} :
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{./resources/08-relasi-entity}
+	\caption{Diagram Relasi}
+	\label{fig:relasi-entity}
+\end{figure}
+
+Yang dapat dijabarkan sebagai berikut, tabel SPPT akan bergantung dengan data yang berada pada tabel DAT\_OP\_BUMI, dimana satu data pada tabel DAT\_OP\_BUMI akan ada banyak data di tabel SPPT, karena setiap Nomor Objek Pajak pada tabel DAT\_OP\_BUMI akan ditetapkan pada tabel SPPT setiap tahun pajak.
+
+Tabel SPPT pun akan bergantung dengan data pada tabel REF\_KECAMATAN dan REF\_KELURAHAN, dimana satu Kecamatan dan satu Desa/Kelurahan akan memiliki banyak objek di tabel SPPT. 
+
 
 
 \end{document}
