@@ -51,7 +51,7 @@
 \begin{center}
 {\large RANCANGAN SISTEM BASIS DATA - WS PBB}
 \\[1cm]
-XX Februari 2017\\
+19 April 2017\\
 Priyanto Tamami, S.Kom.
 \end{center}
 
@@ -183,6 +183,10 @@ Yang dapat dijabarkan sebagai berikut, tabel SPPT akan bergantung dengan data ya
 
 Tabel SPPT pun akan bergantung dengan data pada tabel REF\_KECAMATAN dan REF\_KELURAHAN, dimana satu Kecamatan dan satu Desa/Kelurahan akan memiliki banyak objek di tabel SPPT. 
 
+Tabel PEMBAYARAN\_SPPT akan bergantung kepada tabel SPPT, tabel REF\_KECAMATAN, dan tabel REF\_KELURAHAN, karena tidak mungkin terjadi suatu pencatatan pembayaran apabila datanya tidak ada pada tabel SPPT.
 
+Intinya, pada saat pencatatan transaksi pembayaran, maka aplikasi akan melakukan pencatatan pada tabel PEMBAYARAN\_SPPT, dan merubah status tagihan terhutang pada tabel SPPT menjadi terbayar, setelah kegiatan tersebut selesai, aplikasi akan mencatatkan kegiatan tersebut pada tabel LOG\_TRX\_PEMBAYARAN.
+
+Apabila terjadi kesalahan pencatatan pembayaran, maka aplikasi akan melakukan penghapusan data pada tabel PEMBAYARAN\_SPPT, dan merubah status tagihan pada tabel SPPT menjadi terhutang, kemudian mencatatkannya dalam tabel LOG\_REVERSAL.
 
 \end{document}
